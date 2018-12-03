@@ -1,3 +1,14 @@
-<div class="example-box" cdkDrag>
-    Drag me around
+<div class="example-container">
+  <h2>To do</h2>
+
+  <div class="example-list" #makeList="cdkDropList" [cdkDropListConnectedTo]="[doneList]" [cdkDropListData]="make" cdkDropList (cdkDropListDropped)='drop($event)'>
+    <div class="example-box" *ngFor='let item of make' cdkDrag><span>{{item}}</span></div>
   </div>
+</div>
+
+<div class="example-container">
+  <h2>Done</h2>
+  <div class="example-list" #doneList="cdkDropList" [cdkDropListConnectedTo]="[makeList]" [cdkDropListData]="done" cdkDropList (cdkDropListDropped)='drop($event)'>
+    <div class="example-box" *ngFor='let item of done' cdkDrag>{{item}}</div>
+  </div>
+</div>

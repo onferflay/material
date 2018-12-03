@@ -1,10 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButtonModule, MatCheckboxModule} from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { VanoComponent } from './vano/vano.component';
+
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { MaterialModule } from './material';
+
 
 @NgModule({
   declarations: [
@@ -14,8 +16,7 @@ import { VanoComponent } from './vano/vano.component';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MatButtonModule, 
-    MatCheckboxModule
+    MaterialModule
     ],
   providers: [],
   bootstrap: [AppComponent]

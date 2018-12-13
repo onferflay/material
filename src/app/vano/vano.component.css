@@ -1,54 +1,30 @@
-.example-container {
-  width: 400px;
-  max-width: 100%;
-  margin: 0 25px 25px 0;
-  display: inline-block;
-  vertical-align: top;
-}
-
-.example-list {
-  border: solid 1px #ccc;
-  min-height: 60px;
-  background: white;
-  border-radius: 4px;
-  overflow: hidden;
+.main{
+  width:100%;
+  padding: 20px;
+  margin:100px auto;
   display: block;
+  background-color: rgb(31, 122, 39);
+}
+.hedges{
+  display: inline-block;
+  margin:10px;
+  border:1px solid #ccc;
+  width: 250px;
+  color:#333;
+  background-color: white;
 }
 
-.example-box {
-  padding: 20px 10px;
-  border-bottom: solid 1px #ccc;
-  color: rgba(0, 0, 0, 0.87);
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  box-sizing: border-box;
-  cursor: move;
-  background: white;
-  font-size: 14px;
+.hedges table td{
+  padding:5px;
+  border:1px solid #ccc;
 }
-
-.cdk-drag-preview {
-  box-sizing: border-box;
-  border-radius: 4px;
-  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
-              0 8px 10px 1px rgba(0, 0, 0, 0.14),
-              0 3px 14px 2px rgba(0, 0, 0, 0.12);
+.hedges table{
+  width: 100%;
+  text-align: center;
+  border: 1px solid #333;
 }
-
-.cdk-drag-placeholder {
-  opacity: 0;
-}
-
-.cdk-drag-animating {
-  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
-}
-
-.example-box:last-child {
-  border: none;
-}
-
-.example-list.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
-  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+.hedges p{
+  margin:0;
+  padding: 10px;
+  text-align: center;
 }

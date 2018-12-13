@@ -1,14 +1,17 @@
-<div class="example-container">
-  <h2>To do</h2>
 
-  <div class="example-list" #makeList="cdkDropList" [cdkDropListConnectedTo]="[doneList]" [cdkDropListData]="make" cdkDropList (cdkDropListDropped)='drop($event)'>
-    <div class="example-box" *ngFor='let item of make' cdkDrag><span>{{item}}</span></div>
-  </div>
-</div>
 
-<div class="example-container">
-  <h2>Done</h2>
-  <div class="example-list" #doneList="cdkDropList" [cdkDropListConnectedTo]="[makeList]" [cdkDropListData]="done" cdkDropList (cdkDropListDropped)='drop($event)'>
-    <div class="example-box" *ngFor='let item of done' cdkDrag>{{item}}</div>
+<div class='main' id="main" (drop)="drop($event)"  (dragover)="allowDrop($event)"> 
+  <div class='hedges' (dragstart)="drag($event)" draggable="true" *ngFor='let om of persoane; let i = index' id='h{{i}}'>
+      <table cellpadding='0' cellspacing='0'>
+        <tr>
+           <td>Varsta:</td>
+           <td>{{ om.age }}</td>
+        </tr>
+        <tr>
+           <td>Nume:</td>
+           <td>{{ om.name }}</td>
+        </tr>
+      </table>
+      <p>{{ om.text }}</p>
   </div>
 </div>

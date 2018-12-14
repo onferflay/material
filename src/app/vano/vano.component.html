@@ -2,6 +2,8 @@
 
 <div class='main' id="main" (drop)="drop($event)"  (dragover)="allowDrop($event)"> 
   <div class='hedges' (dragstart)="drag($event)" draggable="true" *ngFor='let om of persoane; let i = index' id='h{{i}}'>
+    <div class="placeholder"></div>
+    <div class="dragthis">
       <table cellpadding='0' cellspacing='0'>
         <tr>
            <td>Varsta:</td>
@@ -13,5 +15,9 @@
         </tr>
       </table>
       <p>{{ om.text }}</p>
+      <div *ngIf="i == 0" [chart]="chart1"></div>
+      <div *ngIf="i == 1" [chart]="chart2"></div>
+      <div *ngIf="i == 2" [chart]="chart3"></div>
+    </div>
   </div>
 </div>

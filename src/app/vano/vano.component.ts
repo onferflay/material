@@ -79,22 +79,14 @@ export class VanoComponent {
 
   drag(ev) {
     ev.dataTransfer.setData("text", ev.target.id);
+    console.log(ev.target.id);
     let nodes = Array.prototype.slice.call( document.getElementById('main').children );
     let element = document.getElementById(ev.target.id);
     ev.dataTransfer.setData("prevIndex",nodes.indexOf( element ));
-
-    $('body').mousemove(function(){
-      console.log('privet');
-    });
-
     $(element).addClass('dragging');
-    $(element).find('.placeholder').show();
-    $('body').trigger("mousemove");
+    $(element).parent().find('.placeholder').show();
   }
 
-  // moveme(){
-
-  // }
 
   drop(ev) {
     ev.preventDefault();
@@ -107,7 +99,7 @@ export class VanoComponent {
     let curIndex = nodes.indexOf(curElem);
     
     $(prevElem).removeClass('dragging');
-    $(prevElem).find('.placeholder').hide();
+    $(prevElem).parent().find('.placeholder').hide();
 
     if ( prevIndex > curIndex ) { $(curElem).before(prevElem); }
     else { $(curElem).after(prevElem); }

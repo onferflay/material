@@ -10,13 +10,15 @@ import { VanoComponent } from './vano/vano.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MaterialModule } from './material';
 import { MaterialComponent } from './material/material.component';
+import { TesteComponent } from './teste/teste.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     VanoComponent,
-    MaterialComponent
+    MaterialComponent,
+    TesteComponent
   ],
   imports: [
     BrowserModule,

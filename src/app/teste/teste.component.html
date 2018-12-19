@@ -1,0 +1,16 @@
+<div class="main" (drop)="drop($event)"  (dragover)="allowDrop($event)">
+  <div class='box'>
+      <div class="placeholder"></div>
+      <div class='dragg green' (dragstart)="drag($event)" (mousedown) ='ura($event)' draggable="true" id='green'> Color Green</div>
+  </div>
+  <div class='box'>
+      <div class="placeholder"></div>
+      <div class='dragg red' (dragstart)="drag($event)" (mousedown) ='ura($event)' draggable="true" id='red'>Color Red</div>
+  </div>
+  <div class='box'>
+      <div class="placeholder"></div>
+      <div class='dragg blue' (dragstart)="drag($event)" (mousedown) ='ura($event)' draggable="true" id='blue'>Color Blue</div>
+    </div>
+</div>
+
+<button (mousedown) = 'button()'>Privet Vano</button>

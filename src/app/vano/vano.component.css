@@ -5,7 +5,7 @@
   display: block;
   background-color: rgb(31, 122, 39);
 }
-.hedges{
+.same{
   display: inline-block;
   margin:10px;
   border:1px solid #ccc;
@@ -16,7 +16,6 @@
 }
 
 .dragthis{
-  z-index: 5;
   display: block;
   position: relative;
   background-color: white;
@@ -47,9 +46,10 @@
   display: none;
   position: absolute;
   width:100%;
-  min-height: 100px;
+  min-height: 100%;
   box-sizing: border-box;
   background-color: #ccc;
+  opacity: 0.5;
   border:3px dotted #333;
   padding: 3px;
   z-index: 1;

@@ -8,6 +8,9 @@ import * as $ from 'jquery';
 })
 export class TesteComponent{
 
+  pid:string;
+  start_index : number;
+
   allowDrop(ev) {
     ev.preventDefault();
     console.log('allowdrop');
@@ -16,10 +19,6 @@ export class TesteComponent{
   drag(ev) {
     ev.preventDefault();
     console.log(ev.target.id);
-
-    // $(ev.target.id).css()
-    // $(document).on('mousemove',event => {console.log('da'); console.log('nu') })
-    // $(document).mousemove( ()=> console.log('daniel'));
   }
 
   button(){
@@ -28,12 +27,19 @@ export class TesteComponent{
 
   ura(ev){
     
-    var box = document.getElementById(ev.target.id);
+    let box = document.getElementById(ev.target.id);
+    this.pid = $(box).parents('.box').attr('id');
+    // let aux = document.getElementById(this.pid);
+
+    // let nodes = Array.prototype.slice.call( document.getElementById('main').children );
+    // this.start_index = nodes.indexOf(aux)
+
+    console.log('index = ' + this.start_index);
+
     $(box).parent().find('.placeholder').show();
     let offset = $(box).parent().offset();
     let difv = ev.pageY - offset.top;
     let difo = ev.pageX - offset.left;
-    let curid = ev.target.id
 
     $(box).addClass('moving')
     $(box).remove();
@@ -47,14 +53,39 @@ export class TesteComponent{
     
     $(document).on('mouseover',event =>
     { 
-      console.log(event.target.id);
-      // if ( curid != event.target.id ) {
-      //   console.log('diferit');
-      // }
-      // else
-      // {
-      //   console.log('acelasi');
-      // } 
+      let ebox = document.getElementById($(event.target).parents('.box').attr('id'));
+      let box = document.getElementById(this.pid); 
+
+      let nodes = Array.prototype.slice.call( document.getElementById('main').children );
+
+      let start_index = nodes.indexOf(box);
+      let event_index = nodes.indexOf(ebox);
+
+      if (start_index < 0 || event_index < 0  || (start_index == event_index) ) return;
+
+      let start_offset = $(box).offset();
+      let event_offset = $(ebox).offset();
+      let offset_dif = event_offset.left - start_offset.left;
+
+      console.log(offset_dif);
+      
+      if ( start_index > event_index )
+      {
+        
+        $(box).css('transform','translate3d('+ offset_dif +'px,0,0)');
+        for(let i = start_index; i > event_index; i--)
+        {
+          $(nodes).eq(i-1).css('transform','translate3d(140px,0,0)');
+        }
+      }
+      else
+      {
+        $(box).css('transform','translate3d('+ offset_dif +'px,0,0)');
+        for(let i = start_index; i < event_index; i++)
+        {
+          $(nodes).eq(i+1).css('transform','translate3d(-140px,0,0)');
+        }
+      }
     });
 
   }

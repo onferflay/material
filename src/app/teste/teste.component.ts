@@ -58,8 +58,14 @@ export class TesteComponent{
 
       let nodes = Array.prototype.slice.call( document.getElementById('main').children );
 
+      console.log(box);
+      console.log(ebox);
+
       let start_index = nodes.indexOf(box);
       let event_index = nodes.indexOf(ebox);
+
+      console.log(start_index);
+      console.log(event_index);
 
       if (start_index < 0 || event_index < 0  || (start_index == event_index) ) return;
 
@@ -68,7 +74,7 @@ export class TesteComponent{
       let offset_dif = event_offset.left - start_offset.left;
 
       console.log(offset_dif);
-      
+
       if ( start_index > event_index )
       {
         
